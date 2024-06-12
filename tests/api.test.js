@@ -1,5 +1,9 @@
 const request = require('supertest');
-const app = require('../index'); // Ensure your Express app is exported from index.js
+const { app, startServer } = require('../index');
+
+beforeAll(async () => {
+  await startServer(); // Ensure the server is started before tests
+});
 
 describe('POST /api/commit', () => {
   it('should insert a commit entry', async () => {

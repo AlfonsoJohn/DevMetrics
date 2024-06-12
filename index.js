@@ -14,7 +14,19 @@ app.use(cors({
 }));
 
 const server = new ApolloServer({ typeDefs, resolvers });
-server.applyMiddleware({ app });
+
+// Start the Apollo server before applying middleware
+async function startServer() {
+  await server.start();
+  server.applyMiddleware({ app });
+
+  const PORT = process.env.PORT || 4000;
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}${server.graphqlPath}`);
+  });
+}
+
+startServer();
 
 // Define POST endpoints
 const validateCommitData = (req, res, next) => {
@@ -66,8 +78,5 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}${server.graphqlPath}`);
-});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
