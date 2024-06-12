@@ -1,4 +1,5 @@
 # DevMetrics: Developer Productivity Analytics Tool
+Work in progress
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
@@ -47,3 +48,10 @@ The GraphQL API provided by DevMetrics allows you to fetch and interact with the
 
 ### Example Query
 To fetch all metrics:
+
+
+### Contributing
+DevMetrics is an open-source project, and we welcome contributions from the community. If you'd like to contribute, please create a new branch and submit a pull request for review.
+
+### License
+DevMetrics is licensed under the MIT License. See LICENSE for details.
