@@ -1,5 +1,5 @@
 # DevMetrics: Developer Productivity Analytics Tool
-Work in progress
+Work in progress.
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
